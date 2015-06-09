@@ -115,4 +115,4 @@ module.exports = (robot) ->
     req = msg.http('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010').get()
     req (err, res, body) ->
       json = JSON.parse body
-      msg.reply json['forecasts'][0]['telop']
+      msg.send "渋谷は、" + json['forecasts'][0]['telop'] + "だ、ブゥ"
