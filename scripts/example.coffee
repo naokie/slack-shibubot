@@ -104,3 +104,6 @@ module.exports = (robot) ->
   # robot.respond /sleep it off/i, (res) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
+
+  robot.hear /[し知]らなかった.*そんなの/, (res) ->
+    res.send 'http://s3-ap-northeast-1.amazonaws.com/shiranakatta/sonnano.jpg'
