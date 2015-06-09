@@ -107,3 +107,12 @@ module.exports = (robot) ->
 
   robot.hear /[し知]らなかった.*そんなの/, (res) ->
     res.send 'http://s3-ap-northeast-1.amazonaws.com/shiranakatta/sonnano.jpg'
+
+  robot.hear /ぬるぽ/, (res) ->
+    res.send 'ｶﾞｯ'
+
+  robot.hear /天気/, (msg) ->
+    req = msg.http('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010').get()
+    req (err, res, body) ->
+      json = JSON.parse body
+      msg.reply json['forecasts'][0]['telop']
