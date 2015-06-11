@@ -105,7 +105,7 @@ module.exports = (robot) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
 
-  robot.hear /[し知]らなかった.*そんなの/, (res) ->
+  robot.hear /[し知]らなかった/, (res) ->
     res.send 'http://s3-ap-northeast-1.amazonaws.com/shiranakatta/sonnano.jpg'
 
   robot.hear /ぬるぽ/, (res) ->
@@ -129,3 +129,6 @@ module.exports = (robot) ->
 ､､しー-Ｊミ(.@)ｗｗｗｗｗｗｗｗｗｗｗ
     ```
     """
+
+  robot.hear /[(っぽい)(だろう)(かも)(そうそう)]/, (msg) ->
+    res.send "(´・ω・｀) そっかー"
