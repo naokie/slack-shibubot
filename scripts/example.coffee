@@ -8,6 +8,8 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+cron = require('cron').CronJob
+
 module.exports = (robot) ->
 
   # robot.hear /badger/i, (res) ->
@@ -120,7 +122,7 @@ module.exports = (robot) ->
   robot.hear /おつかれ[ー]/, (msg) ->
     res.send 'ﾄﾞﾓﾄﾞﾓ (・ω・｀=)ゞ'
 
-  robot.hear /www$/, (msg) ->
+  robot.hear /ｗｗｗ$/, (msg) ->
     res.send """
     ```
     ∧,,∧
@@ -130,5 +132,8 @@ module.exports = (robot) ->
     ```
     """
 
-  robot.hear /[(っぽい)(だろう)(かも)(そうそう)]/, (msg) ->
+  robot.hear /[(っぽい)|(だろう)|(かも)|(そうそう)]/, (msg) ->
     res.send "(´・ω・｀) そっかー"
+
+  new cron('0 0 19 * * *', () ->
+    robot.messageRoom '#shibuya', '(｀･ω･´)ゞ　乙であります', null, true, 'Asia/Tokyo').start()
