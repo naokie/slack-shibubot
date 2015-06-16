@@ -122,18 +122,21 @@ module.exports = (robot) ->
   robot.hear /おつかれ/, (msg) ->
     res.send 'ﾄﾞﾓﾄﾞﾓ (・ω・｀=)ゞ'
 
-  robot.hear /ｗｗｗ$/, (msg) ->
+  robot.hear /[ｗ|w]$/, (msg) ->
     res.send """
     ```
     ∧,,∧
 　 (；`・ω・）　　,
-　 /　ｏ={=}ｏ , ', ´
+　 /　ｏ={=}ｏ , ', ´　草刈っておきますねぇ
 ､､しー-Ｊミ(.@)ｗｗｗｗｗｗｗｗｗｗｗ
     ```
     """
 
   robot.hear /[(っぽい)|(だろう)|(かも)|(そうそう)]/, (msg) ->
     res.send "(´・ω・｀) そっかー"
+
+  robot.hear /redbull/, (msg) ->
+    res.send '(●　・∀・)つ⌒ 翼をさずけよう'
 
   new cron '0 0 19 * * 1-5', ->
     robot.messageRoom '#shibuya', '(｀･ω･´)ゞ　乙であります'
