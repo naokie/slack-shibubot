@@ -135,5 +135,6 @@ module.exports = (robot) ->
   robot.hear /[(っぽい)|(だろう)|(かも)|(そうそう)]/, (msg) ->
     res.send "(´・ω・｀) そっかー"
 
-  new cron('0 0 19 * * *', () ->
-    robot.messageRoom '#shibuya', '(｀･ω･´)ゞ　乙であります', null, true, 'Asia/Tokyo').start()
+  new cron '0 0 19 * * 1-5', ->
+    robot.messageRoom '#shibuya', '(｀･ω･´)ゞ　乙であります'
+  , null, true, "Asia/Tokyo"
