@@ -119,7 +119,7 @@ module.exports = (robot) ->
       json = JSON.parse body
       msg.send "渋谷は、" + json['forecasts'][0]['telop'] + "だ"
 
-  robot.hear /おつかれ[ー]/, (msg) ->
+  robot.hear /おつかれ/, (msg) ->
     res.send 'ﾄﾞﾓﾄﾞﾓ (・ω・｀=)ゞ'
 
   robot.hear /ｗｗｗ$/, (msg) ->
