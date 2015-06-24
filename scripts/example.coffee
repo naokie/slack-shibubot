@@ -117,7 +117,7 @@ module.exports = (robot) ->
     req = res.http('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010').get()
     req (err, respond, body) ->
       json = JSON.parse body
-      res.send "渋谷は、" + json['forecasts'][0]['telop'] + "だ"
+      res.send "渋谷は、" + json['forecasts'][0]['telop'] + "です"
 
   robot.hear /おつかれ|お疲れ/, (res) ->
     res.send '｡･ﾟ･(*´･Д･)ﾉ 乙です'
@@ -161,5 +161,9 @@ module.exports = (robot) ->
     res.send 'えっ'
 
   new cron '0 0 19 * * 1-5', ->
-    robot.messageRoom '#shibuya', '(｀･ω･´)ゞ　乙であります'
+    robot.messageRoom '#shibuya', res.random [
+      'http://img.tiqav.com/p4.jpg'
+      'http://tiqav.com/Xc.jpg'
+      'http://tiqav.com/Kp.jpg'
+    ]
   , null, true, "Asia/Tokyo"
