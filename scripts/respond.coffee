@@ -52,3 +52,20 @@ module.exports = (robot) ->
 
   robot.hear /爆発|ばくはつ(してく|しろ|しちゃえ)/, (res) ->
     res.send 'えっ'
+
+  annoyIntervalId = null
+
+  robot.respond /(鳴|泣)(いて|け))/, (res) ->
+    if annoyIntervalId
+      res.send "(；ﾟ(OO)ﾟ)ﾌﾞﾋｲｲｲｨｨ-"
+      return
+
+    annoyIntervalId = setInterval () ->
+      res.send res.random [
+        "( ´(00)`)ﾌﾞﾋ"
+        "(；ﾟ(OO)ﾟ)ﾌﾞﾋｲｲｲｨｨ-"
+        "Zzz…(*´(00)`)｡o○"
+        "( ´(00)`)y-~~"
+        "なんでやねん！"
+      ]
+    , 1000
