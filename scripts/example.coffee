@@ -8,13 +8,11 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
-cron = require('cron').CronJob
-
 module.exports = (robot) ->
 
-  robot.hear /badger/i, (res) ->
-    res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
-
+  # robot.hear /badger/i, (res) ->
+  #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
+  #
   # robot.respond /open the (.*) doors/i, (res) ->
   #   doorType = res.match[1]
   #   if doorType is "pod bay"
@@ -106,64 +104,3 @@ module.exports = (robot) ->
   # robot.respond /sleep it off/i, (res) ->
   #   robot.brain.set 'totalSodas', 0
   #   res.reply 'zzzzz'
-
-  robot.hear /[し知]らなかった/, (res) ->
-    res.send 'http://s3-ap-northeast-1.amazonaws.com/shiranakatta/sonnano.jpg'
-
-  robot.hear /ぬるぽ/, (res) ->
-    res.send 'ｶﾞｯ'
-
-  robot.hear /天気/, (res) ->
-    req = res.http('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010').get()
-    req (err, respond, body) ->
-      json = JSON.parse body
-      res.send "渋谷は、" + json['forecasts'][0]['telop'] + "です"
-
-  robot.hear /おつかれ|お疲れ/, (res) ->
-    res.send '｡･ﾟ･(*´･Д･)ﾉ 乙です'
-
-  robot.hear /(ｗｗｗ|www)$/, (res) ->
-    res.send """
-```
-    ∧,,∧
-　 (；`・ω・）　　,
-　 /　ｏ={=}ｏ , ', ´　草刈っておきますねぇ
-､､しー-Ｊミ(.@)ｗｗｗｗｗｗｗｗｗｗｗ
-```
-"""
-
-  robot.hear /(っぽい|だろう|かも|そうそう)/, (res) ->
-    res.send "(´・ω・｀) そっかー"
-
-  robot.hear /redbull/, (res) ->
-    res.send '(●　・∀・)つ⌒ 翼をさずけよう'
-
-  robot.hear /忙し/, (res) ->
-    res.send '(つ∀｀*)　気のせいだったらいいのに～！'
-
-  robot.hear /ぐへへ/, (res) ->
-    res.send '(〃ﾉωﾉ)ｲﾔﾝ'
-
-  robot.hear /たい$/, (res) ->
-    res.send 'd(´ー｀*) だねぇ'
-
-  robot.hear /(腹|おなか|お腹).*(減|空|へっ|すい|すき)/, (res) ->
-    res.send res.random [
-      'カレーか？'
-      'ラーメンだろ！'
-      '粉モンがええなぁ'
-      '米くいねぇ！'
-      'たまには抜いてみたら？'
-      '唐揚げだな'
-    ]
-
-  robot.hear /爆発|ばくはつ(してく|しろ|しちゃえ)/, (res) ->
-    res.send 'えっ'
-
-  new cron '0 0 19 * * 1-5', ->
-    robot.messageRoom '#shibuya', res.random [
-      'http://img.tiqav.com/p4.jpg'
-      'http://tiqav.com/Xc.jpg'
-      'http://tiqav.com/Kp.jpg'
-    ]
-  , null, true, "Asia/Tokyo"
