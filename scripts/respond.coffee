@@ -55,7 +55,7 @@ module.exports = (robot) ->
 
   annoyIntervalId = null
 
-  robot.respond /(鳴|泣)(いて|け))/, (res) ->
+  robot.respond /(鳴|泣)(いて|け)/, (res) ->
     if annoyIntervalId
       res.send "(；ﾟ(OO)ﾟ)ﾌﾞﾋｲｲｲｨｨ-"
       return
@@ -68,4 +68,8 @@ module.exports = (robot) ->
         "( ´(00)`)y-~~"
         "なんでやねん！"
       ]
-    , 1000
+    , 3000
+
+  robot.hear /(ストップ|stop)/, (res) ->
+    clearInterval(annoyIntervalId)
+    res.send "ε=ε=ε=ε=ε=ヾ(；ﾟ(OO)ﾟ)ﾉ ㌧づら"
