@@ -11,6 +11,11 @@ module.exports = (robot) ->
     imageMe msg, "進捗だめです", (url) ->
       msg.send url
 
+  robot.respond /qrcode (\S+)/i, (msg) ->
+    msg.send generateQR(msg.match[1])
+
+
+# Google画像検索
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
   cb = faces if typeof faces == 'function'
@@ -25,3 +30,9 @@ imageMe = (msg, query, animated, faces, cb) ->
       if images?.length > 0
         image  = msg.random images
         cb "#{image.unescapedUrl}#.png"
+
+
+# QRコードジェネレータ
+generateQR = (str) ->
+  encoded = encodeURIComponent str
+  "http://chart.apis.google.com/chart?chs=150x150&cht=qr&chl=#{encoded}"
