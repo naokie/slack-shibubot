@@ -36,3 +36,19 @@ imageMe = (msg, query, animated, faces, cb) ->
 generateQR = (str) ->
   encoded = encodeURIComponent str
   "http://chart.apis.google.com/chart?chs=150x150&cht=qr&chl=#{encoded}"
+
+
+# ぬるぽ
+module.exports = (robot) ->
+  robot.hear /ぬるぽ/, (msg) ->
+    msg.send """
+```
+   Λ＿Λ     ＼＼
+（  ・∀・）  | | ｶﾞｯ
+ と     ）  | |
+  Ｙ /ノ     人
+   / ）    < >   _Λ  ∩
+＿/し'   ／／  Ｖ｀Д´）/
+（＿フ彡             / ←>> @#{msg.message.user.name}
+```
+  """
