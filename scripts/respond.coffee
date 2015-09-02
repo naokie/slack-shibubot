@@ -45,9 +45,13 @@ module.exports = (robot) ->
       'ラーメンだろ！'
       '粉モンがええなぁ'
       '米くいねぇ！'
-      'たまには抜いてみたら？'
       '唐揚げだな'
       'トンカツなのか！？'
+      'たまには食事抜きも…'
+      '寿司食べよう！'
+      '焼き鳥はどう？'
+      'や、焼き肉なんですか？'
+      '日本人なら蕎麦だよね'
     ]
 
   robot.hear /爆発|ばくはつ(してく|しろ|しちゃえ)/, (res) ->
@@ -73,3 +77,9 @@ module.exports = (robot) ->
   robot.hear /(ストップ|stop)/, (res) ->
     clearInterval(annoyIntervalId)
     res.send "ε=ε=ε=ε=ε=ヾ(；ﾟ(OO)ﾟ)ﾉ ㌧づら"
+
+  robot.hear /(ぶた)(ブタ)(豚)/, (res) ->
+    res.send '｡ﾟ(ﾟ´(00)`ﾟ)ﾟ｡ぶひぃーん。'
+
+  robot.hear /(.+)よね/, (res) ->
+    res.send "ｿｳﾈ( ´(00)`)y-~~"
