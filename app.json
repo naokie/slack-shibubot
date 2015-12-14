@@ -1,0 +1,16 @@
+{
+  "name": "naokie-slack-shibubot",
+  "scripts": {
+  },
+  "env": {
+    "HUBOT_HEROKU_KEEPALIVE_URL": {
+      "required": true
+    },
+    "HUBOT_SLACK_TOKEN": {
+      "required": true
+    }
+  },
+  "addons": [
+    "redistogo"
+  ]
+}
